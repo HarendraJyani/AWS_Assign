@@ -1,0 +1,9 @@
+#!/bin/sh
+
+sleep 20
+su ec2-user
+chmod 700 /home/ec2-user/.ssh
+chmod 700 /homw/ec2-user/authorized_keys
+aws s3 cp s3://harrytransfer1/id_rsa.pub /home/ec2-user/.ssh/id_rsa.pub
+cat /home/ec2-user/.ssh/id_rsa.pub >> /home/ec2-user/.ssh/authorized_keys
+
